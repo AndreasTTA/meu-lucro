@@ -1,0 +1,125 @@
+/* =========================================================
+   Modelo de PDF "Meu Estúdio, Meu Lucro" — folha A4 (794 × 1123 px)
+   Cores sólidas de propósito: o gerador (html2canvas) não desenha
+   texto com degradê recortado nem filtros.
+   ========================================================= */
+
+/* ---------- janela de pré-visualização ---------- */
+.pf-modal{
+  position:fixed;inset:0;z-index:50;display:none;flex-direction:column;align-items:center;
+  background:rgba(6,5,4,.94);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:0 16px 32px
+}
+.pf-modal.open{display:flex}
+.pf-bar{
+  position:sticky;top:0;z-index:2;width:100%;max-width:820px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  justify-content:space-between;padding:14px 0;background:linear-gradient(180deg,rgba(6,5,4,1) 70%,rgba(6,5,4,0))
+}
+.pf-bar h3{margin:0;font:700 17px "Montserrat",sans-serif;color:#e6c27a}
+.pf-bar .pf-btns{display:flex;gap:8px;flex-wrap:wrap}
+.pf-hint{width:100%;max-width:820px;margin:-4px 0 12px;font:500 12.5px "Montserrat",sans-serif;color:#bfae95}
+.pf-preview{position:relative;flex:0 0 auto;border-radius:6px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px rgba(230,194,122,.35)}
+.pf-preview .pf-sheet{position:absolute;top:0;left:0;transform-origin:top left}
+.pf-stage{position:fixed;left:-20000px;top:0;width:794px;height:1123px;pointer-events:none}
+
+/* ---------- a folha ---------- */
+.pf-sheet{
+  width:794px;height:1123px;overflow:hidden;position:relative;box-sizing:border-box;
+  padding:38px 46px 30px;color:#f4ece0;font-family:"Montserrat",sans-serif;
+  background:
+    radial-gradient(520px 340px at 0% 0%, rgba(214,160,72,.30), rgba(214,160,72,0) 70%),
+    radial-gradient(460px 380px at 100% 30%, rgba(214,160,72,.16), rgba(214,160,72,0) 70%),
+    radial-gradient(600px 300px at 50% 100%, rgba(214,160,72,.20), rgba(214,160,72,0) 70%),
+    #0b0907;
+}
+.pf-sheet *{box-sizing:border-box}
+.pf-frame{position:absolute;inset:14px;border:1px solid rgba(230,194,122,.45);border-radius:18px;pointer-events:none}
+.pf-frame::after{content:"";position:absolute;inset:5px;border:1px solid rgba(230,194,122,.16);border-radius:14px}
+
+/* cabeçalho */
+.pf-head{text-align:center;position:relative}
+.pf-gem{height:26px;text-align:center}
+.pf-gem svg{width:30px;height:24px}
+.pf-imersao{font:500 10px "Cinzel",serif;letter-spacing:6px;color:#e6c27a;padding-left:6px}
+.pf-diamond{font:600 38px/1 "Cinzel",serif;letter-spacing:2px;color:#ecc983;margin-top:2px}
+.pf-title{font:800 30px/1.1 "Playfair Display",serif;color:#f3d38f;margin-top:12px}
+.pf-sub{margin-top:8px;font-size:12.5px;color:#cbbba2}
+.pf-sub b{color:#fbe7b2;font-weight:700}
+.pf-sub .sep{color:#8a6328;margin:0 8px}
+
+/* indicadores */
+.pf-kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:20px}
+.pf-kpi{border:1.5px solid #c99a4b;border-radius:16px;padding:12px 14px 13px;background:rgba(20,15,10,.75);text-align:center}
+.pf-kpi .l{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#bfae95}
+.pf-kpi .v{font:800 25px/1.15 "Playfair Display",serif;color:#fbe7b2;margin-top:5px;white-space:nowrap}
+.pf-kpi .s{font-size:10.5px;color:#a8977e;margin-top:3px}
+.pf-kpi.gold{background:linear-gradient(180deg,#f7dc9d 0%,#e3b766 55%,#c48f3f 100%);border-color:#f3d38f}
+.pf-kpi.gold .l,.pf-kpi.gold .s{color:#3a2a12}
+.pf-kpi.gold .v{color:#1a1209}
+.pf-kpi.gold.neg{background:#3a1410;border-color:#ff8c7a}
+.pf-kpi.gold.neg .l,.pf-kpi.gold.neg .s{color:#ffc1b6}
+.pf-kpi.gold.neg .v{color:#ff8c7a}
+
+/* blocos */
+.pf-sec{position:relative;border:1.5px solid #c99a4b;border-radius:18px;background:rgba(20,15,10,.75);padding:24px 18px 12px;margin-top:26px}
+.pf-tag{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  background:linear-gradient(180deg,#f7dc9d 0%,#e3b766 55%,#c48f3f 100%);color:#1a1209;
+  font:700 14px/1 "Montserrat",sans-serif;padding:7px 26px 8px;border-radius:999px
+}
+
+/* tabela de dados */
+.pf-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.pf-table th{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#e6c27a;text-align:right;padding:0 6px 7px}
+.pf-table th:first-child{text-align:left}
+.pf-table td{padding:6px 6px;border-top:1px solid rgba(230,194,122,.18);text-align:right;font-weight:600;color:#fbe7b2;white-space:nowrap}
+.pf-table td:first-child{text-align:left;font-weight:500;color:#efe4d2;white-space:normal}
+.pf-table td small{display:block;font-size:9.5px;color:#a8977e;font-weight:500}
+.pf-table td.neg{color:#ff8c7a}
+.pf-table tr.hl td{color:#f3d38f}
+.pf-extra{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px;padding-top:9px;border-top:1px solid rgba(230,194,122,.35)}
+.pf-extra div{font-size:10px;color:#bfae95;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.pf-extra b{display:block;font-size:14px;color:#fbe7b2;letter-spacing:0;text-transform:none;margin-top:2px}
+
+/* cálculos + meta */
+.pf-cols{display:grid;grid-template-columns:1.15fr 1fr;gap:14px}
+.pf-cols .pf-sec{margin-top:26px}
+.pf-step{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid rgba(230,194,122,.18)}
+.pf-step:first-child{border-top:0}
+.pf-num{
+  flex:0 0 24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#f7dc9d 0%,#e3b766 55%,#c48f3f 100%);color:#1a1209;font-weight:700;font-size:12px
+}
+.pf-step .t{flex:1;font-size:12px;color:#efe4d2;line-height:1.25}
+.pf-step .t small{display:block;font-size:9.5px;color:#a8977e}
+.pf-step .v{font-weight:700;font-size:14px;color:#fbe7b2;white-space:nowrap}
+.pf-cols .pf-sec{display:flex;flex-direction:column}
+.pf-meta{text-align:center;display:flex;flex-direction:column;justify-content:center;flex:1}
+.pf-meta .pf-q{font-size:11.5px;color:#d9ccb6;line-height:1.35}
+.pf-meta .pf-q b{color:#fbe7b2}
+.pf-meta .big{font:800 58px/1 "Playfair Display",serif;color:#f3d38f;margin:8px 0 2px}
+.pf-meta .u{font-size:13px;font-weight:700;color:#fbe7b2}
+.pf-meta .pf-split{font-size:11px;color:#bfae95;margin-top:4px}
+
+/* resultado */
+.pf-checks{list-style:none;margin:0;padding:0}
+.pf-checks li{display:flex;gap:10px;padding:7px 0;border-top:1px solid rgba(230,194,122,.18)}
+.pf-checks li:first-child{border-top:0;padding-top:2px}
+.pf-mark{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pf-mark svg{width:13px;height:13px}
+.pf-mark.ok{background:#e6c27a;color:#1a1209}
+.pf-mark.warn{background:#ffb36b;color:#2a1606}
+.pf-mark.bad{background:#ff8c7a;color:#2a0d08}
+.pf-mark.idle{background:#3a3226;color:#8a7c66}
+.pf-checks .t{font-weight:700;font-size:12.5px;color:#f4ece0}
+.pf-checks .d{font-size:11.5px;color:#d9ccb6;line-height:1.45;margin-top:2px}
+.pf-checks .d b{color:#fbe7b2}
+
+.pf-foot{position:absolute;left:0;right:0;bottom:24px;text-align:center;font-size:9.5px;letter-spacing:2.5px;color:#8a7c66;text-transform:uppercase}
+
+/* se o texto ficar comprido demais, compacta os espaços */
+.pf-sheet.compact{padding-top:30px}
+.pf-sheet.compact .pf-title{margin-top:8px;font-size:27px}
+.pf-sheet.compact .pf-kpis{margin-top:14px}
+.pf-sheet.compact .pf-sec{margin-top:22px;padding-top:21px}
+.pf-sheet.compact .pf-table td{padding:4px 6px}
+.pf-sheet.compact .pf-checks .d{font-size:11px;line-height:1.38}
