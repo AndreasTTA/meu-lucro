@@ -178,7 +178,7 @@
     flex:1 1 100%;margin-left:50px;display:flex;align-items:center;gap:8px;height:50px;padding:0 16px;border-radius:999px;
     background:var(--gold-pill);color:#1a1209;box-shadow:0 3px 16px rgba(214,160,72,.3)
   }
-  .meta-field span{font-weight:800;font-size:19px}
+  .meta-field span{font-weight:800;font-size:20px;font-variant-numeric:tabular-nums}
   .meta-field input{
     flex:1;min-width:0;border:0;outline:none;background:transparent;border-bottom:2px solid rgba(26,18,9,.55);
     font:700 19px "Montserrat",sans-serif;color:#1a1209;padding:2px 2px
@@ -382,11 +382,11 @@
 
       <div class="row meta-row">
         <div class="num">5</div>
-        <label class="q" for="meta">Quantos atendimentos preciso para atingir a minha meta de</label>
-        <div class="meta-field">
-          <span>R$</span><input id="meta" data-k="meta" data-money inputmode="decimal" placeholder="sua meta" autocomplete="off"><b>?</b>
+        <div class="q">Atendimentos para atingir o seu pró-labore de:</div>
+        <div class="meta-field" aria-live="polite">
+          <span id="meta-show">R$ —</span>
         </div>
-        <div class="meta-hint" id="meta-hint">Meta = quanto você quer que sobre no mês, já descontados materiais e despesas. Em branco, usamos o seu pró-labore.</div>
+        <div class="meta-hint" id="meta-hint">Preenchido automaticamente com o seu pró-labore. Para simular outro valor, altere o pró-labore lá em cima.</div>
         <div class="meta-answer" id="meta-answer">
           <span class="big" id="o-need">—</span><span class="lbl" id="o-need-lbl">preencha seus dados para descobrir</span>
         </div>
@@ -444,7 +444,7 @@
 <script>
 (function(){
   const KEY = 'diamond-precificacao-v1';
-  const FIELDS = ['qa','pa','ma','qm','pm','mm','despesas','prolabore','meta'];
+  const FIELDS = ['qa','pa','ma','qm','pm','mm','despesas','prolabore'];
   const $ = id => document.getElementById(id);
   const brl = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
   const fmt = n => brl.format(n);
@@ -524,9 +524,8 @@
     const N = ativos.reduce((s,t)=>s+t.N,0);
     const D = parseMoney($('despesas').value);
     const S = parseMoney($('prolabore').value);
-    const metaTyped = parseMoney($('meta').value);
-    const meta = isNaN(metaTyped) ? S : metaTyped;
-    $('meta').placeholder = isNaN(S) ? 'sua meta' : fmtNum(S);
+    const meta = S; // a meta é sempre o pró-labore (o que precisa sobrar)
+    $('meta-show').textContent = isNaN(S) ? 'R$ —' : fmt(S);
 
     const precosOk = N>0 && ativos.every(t=>has(t.P));
     const matsOk = N>0 && ativos.every(t=>has(t.m));

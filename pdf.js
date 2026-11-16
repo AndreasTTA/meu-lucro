@@ -35,7 +35,6 @@
       <tr><td>Custo real por atendimento<small>material + parte das despesas fixas</small></td>${col(t => fmt(t.custoReal))}</tr>
       <tr class="hl"><td>Lucro por atendimento<small>valor cobrado − custo real</small></td>${ativos.map(t => `<td class="${lucroAt(t)<0?'neg':''}">${fmt(lucroAt(t))}</td>`).join('')}</tr>`;
 
-    const metaSub = r.meta === r.S ? 'o seu pró-labore' : 'a sua meta';
 
     return `
     <div class="pf-sheet">
@@ -78,7 +77,7 @@
         <section class="pf-sec">
           <div class="pf-tag">Sua Meta</div>
           <div class="pf-meta">
-            <div class="pf-q">Para sobrar <b>${fmt(r.meta)}</b> no mês (${metaSub}), você precisa de</div>
+            <div class="pf-q">Para sobrar o seu pró-labore de <b>${fmt(r.S)}</b> no mês, você precisa de</div>
             <div class="big">${isFinite(r.need) ? r.need : '—'}</div>
             <div class="u">${isFinite(r.need) ? r.needUnidade + ' no mês' : 'ajuste os valores'}</div>
             ${r.needSplit ? `<div class="pf-split">≈ ${r.needSplit}</div>` : ''}
